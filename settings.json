@@ -1,14 +1,12 @@
 {
-  "lastChangelogVersion": "0.73.1",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "low",
+  "lastChangelogVersion": "0.75.4",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "gpt-5.4",
+  "defaultThinkingLevel": "xhigh",
   "packages": [
-    "git:github.com/nicobailon/pi-mcp-adapter",
     "git:github.com/pasky/chrome-cdp-skill",
     "-git:github.com/HazAT/glimpse",
     "-git:github.com/HazAT/pi-autoresearch",
-    "git:github.com/HazAT/pi-parallel",
     "git:github.com/badlogic/pi-diff-review",
     "npm:@tmustier/pi-files-widget",
     "npm:pi-markdown-preview",
@@ -20,12 +18,18 @@
     "git:github.com/nicobailon/pi-powerline-footer",
     "git:github.com/nicobailon/pi-boomerang",
     "git:github.com/mattleong/pi-code-previews",
-    "git:github.com/Mathuv/pi-interactive-subagents",
-    "git:github.com/Mathuv/pi-destructive-confirm"
+    "git:github.com/fu5ha/pi-treebase",
+    "git:github.com/nicobailon/pi-mcp-adapter",
+    "git:github.com/Mathuv/pi-symbol-autocomplete",
+    "../../devel/pi-interactive-subagents",
+    "npm:pi-subagents",
+    "npm:pi-intercom",
+    "git:github.com/HazAT/pi-parallel"
   ],
   "hideThinkingBlock": false,
   "extensions": [
-    "+extensions/cmux/index.ts"
+    "+extensions/cmux/index.ts",
+    "+extensions/uv.ts"
   ],
   "compaction": {
     "enabled": false
@@ -37,6 +41,29 @@
   "powerline": {
     "preset": "default",
     "fixedEditor": false
+  },
+  "subagents": {
+    "agentOverrides": {
+      "reviewer": {
+        "model": "openai-codex/gpt-5.3-codex",
+        "thinking": "high",
+        "fallbackModels": [
+          "opencode-go/deepseek-v4-pro"
+        ]
+      },
+      "worker": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "xhigh"
+      },
+      "scout": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "thinking": "high"
+      },
+      "planner": {
+        "model": "openai-codex/gpt-5.3-codex",
+        "thinking": "xhigh"
+      }
+    }
   },
   "transport": "websocket-cached"
 }

@@ -1,21 +1,28 @@
 # Pi Config
 
-My personal [pi](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) configuration — agents, skills, extensions, and prompts that shape how pi works for me.
+My personal [pi](https://github.com/earendil-works/pi) configuration — agents, skills, extensions, and prompts that shape how pi works for me.
 
 ## Setup
 
 Clone this repo directly to `~/.pi/agent/` — pi auto-discovers everything from there (extensions, skills, agents, AGENTS.md, mcp.json). No symlinks, no manual wiring.
 
+### Prerequisites
+
+- **[git](https://git-scm.com/downloads)** — clone and update this config repo
+- **[pi](https://github.com/earendil-works/pi)** — the coding agent itself
+- **[uv](https://docs.astral.sh/uv/getting-started/installation/)** — required by `extensions/uv.ts`; Pi routes bare `python` / `python3` calls through `uv run` and blocks `pip` / `poetry` workflows in favor of uv
+- **[cmux](https://www.cmux.dev/)** — recommended if you want the visible subagent workflow this config is built around
+
 ### Fresh machine
 
 ```bash
-# 1. Install pi (https://github.com/badlogic/pi)
+# 1. Install prerequisites: git, pi, uv, and optionally cmux
 
 # 2. Clone this repo as your agent config
 mkdir -p ~/.pi
 git clone git@github.com:Mathuv/pi-config ~/.pi/agent
 
-# 3. Run setup (installs packages + extension deps)
+# 3. Run setup (installs packages and writes default settings if missing)
 cd ~/.pi/agent && ./setup.sh
 
 # 4. Add your API keys to ~/.pi/agent/auth.json
@@ -89,6 +96,7 @@ Loaded on-demand when the context matches.
 | **execute-command/** | `execute_command` tool — lets the agent self-invoke slash commands |
 | **todos/** | `/todos` command + `todo` tool — file-based todo management |
 | **destructive-confirm/** | Safety gate for destructive `bash`/`write`/`edit` tool calls. See [`extensions/destructive-confirm/README.md`](extensions/destructive-confirm/README.md). |
+| **uv.ts** | uv-first Python guardrail for the `bash` tool — prepends command shims, routes bare `python` / `python3` through `uv run`, and blocks `pip`, `pip3`, and `poetry`. Benefit: keeps agent Python usage portable and consistent across Pi sessions instead of depending on shell-local setup. |
 
 ## Commands
 
