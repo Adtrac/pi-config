@@ -1,11 +1,11 @@
 {
   "lastChangelogVersion": "0.75.4",
-  "defaultProvider": "github-copilot",
+  "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "xhigh",
+  "defaultThinkingLevel": "high",
   "packages": [
     "git:github.com/pasky/chrome-cdp-skill",
-    "-git:github.com/HazAT/glimpse",
+    "git:github.com/HazAT/glimpse",
     "-git:github.com/HazAT/pi-autoresearch",
     "git:github.com/badlogic/pi-diff-review",
     "npm:@tmustier/pi-files-widget",
@@ -21,10 +21,10 @@
     "git:github.com/fu5ha/pi-treebase",
     "git:github.com/nicobailon/pi-mcp-adapter",
     "git:github.com/Mathuv/pi-symbol-autocomplete",
-    "../../devel/pi-interactive-subagents",
     "npm:pi-subagents",
     "npm:pi-intercom",
-    "git:github.com/HazAT/pi-parallel"
+    "git:github.com/HazAT/pi-parallel",
+    "git:github.com/Mathuv/pi-interactive-subagents@agents-use-caller-ping"
   ],
   "hideThinkingBlock": false,
   "extensions": [
