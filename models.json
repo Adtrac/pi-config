@@ -1,18 +1,49 @@
 {
   "providers": {
-    "lmstudio": {
-      "baseUrl": "http://192.168.1.203:1234",
-      "api": "anthropic-messages",
-      "apiKey": "lm-studio",
+    "deepseek": {
+      "baseUrl": "https://api.deepseek.com",
+      "api": "openai-completions",
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
       "models": [
         {
-          "id": "google/gemma-4-26b-a4b-it",
-          "name": "Gemma 4 26B A4B (LM Studio)",
-          "reasoning": false,
-          "input": ["text", "image"],
-          "contextWindow": 128000,
-          "maxTokens": 8192,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 384000,
+          "cost": {
+            "input": 0.14,
+            "output": 0.28,
+            "cacheRead": 0.0028,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "requiresReasoningContentOnAssistantMessages": true,
+            "thinkingFormat": "deepseek"
+          }
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 384000,
+          "cost": {
+            "input": 0.435,
+            "output": 0.87,
+            "cacheRead": 0.003625,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "requiresReasoningContentOnAssistantMessages": true,
+            "thinkingFormat": "deepseek"
+          }
         }
       ]
     }

@@ -1,0 +1,21 @@
+{
+  "worker": {
+    "model": "opencode-go/deepseek-v4-flash",
+    "thinking": "xhigh",
+    "skills": "karpathy-guidelines"
+  },
+  "scout": {
+    "model": "opencode-go/deepseek-v4-flash",
+    "thinking": "high"
+  },
+  "planner": {
+    "model": "openai-codex/gpt-5.3-codex",
+    "thinking": "xhigh",
+    "skills": "grill-with-docs,karpathy-guidelines"
+  },
+  "reviewer": {
+    "model": "openai-codex/gpt-5.3-codex",
+    "thinking": "high",
+    "skills": "karpathy-guidelines"
+  }
+}
