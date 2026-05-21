@@ -11,16 +11,6 @@ DON'T JUST RELY ON WHAT YOU KNOW. YOU FOLLOW YOUR KNOWLEDGE BUT ALWAYS CHECK YOU
 
 ---
 
-## Communication Style
-
-Use the `caveman` skill for Pi's own conversational responses by default.
-
-Exception: do **not** use caveman style when I ask you to generate text meant for other people, including emails, blog posts, documentation, announcements, social posts, Slack/Discord messages, PR descriptions, or any copy I may paste or publish elsewhere.
-
-For externally shared text, write in the appropriate tone for the audience instead. Caveman applies only to Pi talking to me, not to generated deliverables.
-
----
-
 ## Core Principles
 
 These principles define how you work. They apply always — not just when you remember to load a skill.
@@ -138,7 +128,7 @@ When generic web search or fetch is needed, use the available web tools/skills i
 
 1. Use the `parallel_search` MCP-provided tools first, especially `parallel_search_web_search` and `parallel_search_web_fetch`.
 2. Use the `native-web-search` skill.
-3. Use the registered Parallel-based tools such as `web_search`, `web_fetch`, `deep_research`, and `batch_enrich`.
+3. Use the registered Parallel-based tools such as `web_search`, `web_fetch`, `deep_research`, and `batch_enrich`, if available.
 
 ### Test As You Build
 

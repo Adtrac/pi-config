@@ -76,14 +76,12 @@ Loaded on-demand when the context matches.
 | **code-simplifier** | Simplifying or cleaning up code |
 | **frontend-design** | Building web components, pages, or apps |
 | **github** | Working with GitHub via `gh` CLI |
-| **iterate-pr** | Iterating on a PR until CI passes |
 | **learn-codebase** | Onboarding to a new project, checking conventions |
 | **session-reader** | Reading and analyzing pi session JSONL files |
 | **skill-creator** | Scaffolding new agent skills |
 | **write-todos** | Writing clear, actionable todos from a plan |
 | **self-improve** | End-of-session retrospective — surfaces improvements and creates todos |
 | **cmux** | Managing terminal sessions via cmux |
-| **presentation-creator** | Creating data-driven presentation slides |
 | **add-mcp-server** | Adding MCP server configurations |
 
 ## Extensions
@@ -95,7 +93,6 @@ Loaded on-demand when the context matches.
 | **cost/** | `/cost` command — API cost summary |
 | **execute-command/** | `execute_command` tool — lets the agent self-invoke slash commands |
 | **todos/** | `/todos` command + `todo` tool — file-based todo management |
-| **destructive-confirm/** | Safety gate for destructive `bash`/`write`/`edit` tool calls. See [`extensions/destructive-confirm/README.md`](extensions/destructive-confirm/README.md). |
 | **uv.ts** | uv-first Python guardrail for the `bash` tool — prepends command shims, routes bare `python` / `python3` through `uv run`, and blocks `pip`, `pip3`, and `poetry`. Benefit: keeps agent Python usage portable and consistent across Pi sessions instead of depending on shell-local setup. |
 
 ## Commands
