@@ -25,10 +25,10 @@ git clone git@github.com:Mathuv/pi-config ~/.pi/agent
 # 3. Run setup (installs packages and writes default settings if missing)
 cd ~/.pi/agent && ./setup.sh
 
-# 4. Add your API keys to ~/.pi/agent/auth.json
-
-# 5. Restart pi
 ```
+
+Add credentials to ~/.pi/agent/auth.json and restart pi or run `/login` slash command after running pi. If you use the optional Deepseek models in models.json, also provide DEEPSEEK_API_KEY in your environment.
+
 
 ### Updating
 

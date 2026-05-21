@@ -51,7 +51,8 @@ if [ ! -f "$EXPECTED_DIR/settings.json" ]; then
   ],
   "hideThinkingBlock": false,
   "extensions": [
-    "+extensions/cmux/index.ts"
+    "+extensions/cmux/index.ts",
+    "+extensions/uv.ts"
   ],
   "compaction": {
     "enabled": false
