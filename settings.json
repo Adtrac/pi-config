@@ -20,11 +20,16 @@
     "git:github.com/mattleong/pi-code-previews",
     "git:github.com/fu5ha/pi-treebase",
     "git:github.com/nicobailon/pi-mcp-adapter",
-    "git:github.com/Mathuv/pi-symbol-autocomplete",
-    "npm:pi-subagents",
-    "npm:pi-intercom",
     "git:github.com/HazAT/pi-parallel",
-    "git:github.com/Mathuv/pi-interactive-subagents@agents-use-caller-ping"
+    {
+      "source": "git:github.com/obra/superpowers",
+      "skills": [
+        "skills/*/SKILL.md",
+        "!skills/using-superpowers/SKILL.md"
+      ]
+    },
+    "git:github.com/Mathuv/symbol-autocomplete",
+    "git:github.com/Mathuv/pi-interactive-subagents"
   ],
   "hideThinkingBlock": false,
   "extensions": [
