@@ -10,7 +10,7 @@ Activate the Superpowers workflow only because the user explicitly invoked this 
 
 ## Step 1: Load Bootstrap
 
-Read `/Users/mathu/.pi/agent/git/github.com/obra/superpowers/skills/using-superpowers/SKILL.md`.
+Read `~/.pi/agent/git/github.com/obra/superpowers/skills/using-superpowers/SKILL.md`.
 
 ## Step 2: Apply Session Rules
 

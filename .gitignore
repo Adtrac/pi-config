@@ -1,6 +1,9 @@
 # Sensitive - don't sync
 auth.json
 
+# Personal instructions - don't sync
+APPEND_SYSTEM.md
+
 # Local state - don't sync
 .pi/
 sessions/
