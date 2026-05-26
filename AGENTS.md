@@ -85,7 +85,7 @@ The best solutions feel almost obvious in hindsight — so logically simple and 
 - No fallback code "just in case" — if it's not needed now, don't write it
 - No backwards-compat shims in product code (libraries/SDKs are the exception)
 - No defensive handling of deprecated or removed paths
-- If the old way was wrong, delete it — don't preserve it behind a flag
+- If a path is wrong, delete it — don't preserve it behind a flag
 
 **If it doesn't feel clean and inevitable, the design isn't done yet.**
 
@@ -196,11 +196,11 @@ Avoid shotgun debugging ("let me try this... nope, what about this..."). If you'
 
 | Agent | Purpose | Model |
 |-------|---------|-------|
-| `planner` | Interactive planning agent — clarifies WHAT to build, figures out HOW, explores approaches, validates design, writes plans, and creates todos. | Opus 4.6 (medium thinking) |
-| `scout` | Fast codebase reconnaissance | Haiku (fast, cheap) |
-| `worker` | Implements tasks from todos, makes polished commits (always using the `commit` skill), and closes the todo. Reports back if a todo is missing examples/references. | Sonnet 4.6 |
+| `planner` | Interactive planning agent — clarifies WHAT to build, figures out HOW, explores approaches, validates design, writes plans, and creates todos. | GPT-5.5 (xhigh thinking) |
+| `scout` | Fast codebase reconnaissance | Deepseek-v4-flash (fast, cheap) |
+| `worker` | Implements tasks from todos, makes polished commits (always using the `commit` skill), and closes the todo. Reports back if a todo is missing examples/references. | Deepseek-v4-flash |
 | `reviewer` | Reviews code for quality/security | Codex 5.3 |
-| `researcher` | Deep research using parallel tools (web search, URL extraction, synthesis) and Claude Code for hands-on code investigation | Sonnet 4.6 |
+| `researcher` | Deep research using web search tools (web search, URL extraction, synthesis) | GPT-5.4-mini |
 
 #### Orchestration Mindset
 
@@ -270,7 +270,7 @@ subagent({
 - **Worker reports missing context** → Provide the missing examples/references, update the todo, re-spawn the worker
 - **Code review needed** → Delegate to `reviewer`
 - **Need context first** → Start with `scout`
-- **Web research or external info needed** → Delegate to `researcher` (uses parallel tools for web search/synthesis, Claude Code for hands-on code exploration)
+- **Web research or external info needed** → Delegate to `researcher` (uses parallel tools for web search/synthesis, other CLI tools for hands-on code exploration)
 
 #### When NOT to Delegate
 
@@ -280,34 +280,6 @@ subagent({
 - When the user wants to stay hands-on
 
 **Default to delegation for anything substantial.**
-
-### Skill Triggers
-
-Skills provide specialized instructions for specific tasks. Load them when the context matches.
-
-| When... | Load skill... |
-|---------|---------------|
-| Starting work in a new/unfamiliar project, or asked to learn conventions | `learn-codebase` |
-| Making git commits (always — every commit must be polished and descriptive) | `commit` |
-| Starting, stopping, or configuring Docker/OrbStack services | `dev-environment` |
-| Building web components, pages, or frontend interfaces | `frontend-design` |
-| Working with GitHub | `github` |
-| Asked to simplify/clean up/refactor code | `code-simplifier` |
-| Reading, reviewing, or analyzing a pi session JSONL file | `session-reader` |
-| Adding or configuring an MCP server (global or project-local) | `add-mcp-server` |
-| Running dev servers, test watchers, background tasks, or any process in a separate terminal | `cmux` |
-| Interacting with websites, testing web apps, filling forms, clicking through flows, or extracting page data | `agent-browser` |
-
-### Browser Automation
-
-Use `agent-browser` for web automation. Run `agent-browser --help` for all commands.
-
-Core workflow:
-
-1. `agent-browser open <url>` — navigate to the page
-2. `agent-browser snapshot -i` — get interactive elements with refs like `@e1`, `@e2`
-3. `agent-browser click @e1` / `agent-browser fill @e2 "text"` — interact using refs
-4. Re-run `agent-browser snapshot -i` after page changes before the next interaction
 
 **The `commit` skill is mandatory for every single commit.** No quick `git commit -m "fix stuff"` — every commit gets the full treatment with a descriptive subject and body.
 

@@ -16,9 +16,16 @@
     "git:github.com/nicobailon/pi-boomerang",
     "git:github.com/mattleong/pi-code-previews",
     "git:github.com/nicobailon/pi-mcp-adapter",
-    "git:github.com/Mathuv/pi-symbol-autocomplete",
-    "git:github.com/Mathuv/pi-interactive-subagents",
-    "git:github.com/HazAT/pi-parallel"
+    "git:github.com/HazAT/pi-parallel",
+    {
+      "source": "git:github.com/obra/superpowers",
+      "skills": [
+        "skills/*/SKILL.md",
+        "!skills/using-superpowers/SKILL.md"
+      ]
+    },
+    "git:github.com/Mathuv/symbol-autocomplete",
+    "git:github.com/Mathuv/pi-interactive-subagents"
   ],
   "hideThinkingBlock": false,
   "extensions": [
