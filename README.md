@@ -11,7 +11,10 @@ Clone this repo directly to `~/.pi/agent/` — pi auto-discovers everything from
 - **[git](https://git-scm.com/downloads)** — clone and update this config repo
 - **[pi](https://github.com/earendil-works/pi)** — the coding agent itself
 - **[uv](https://docs.astral.sh/uv/getting-started/installation/)** — required by `extensions/uv.ts`; Pi routes bare `python` / `python3` calls through `uv run` and blocks `pip` / `poetry` workflows in favor of uv
+- **[Node.js/npm/npx](https://nodejs.org/)** — required for `npx skills ...`, npm-based pi packages, and the Postgres MCP server entries in `mcp.json`
 - **[cmux](https://www.cmux.dev/)** — recommended if you want the visible subagent workflow this config is built around
+
+See [CLI tools](#cli-tools) for the full bootstrap list used by config files, MCP servers, extensions, and globally installed skills.
 
 ### Fresh machine
 
@@ -25,10 +28,138 @@ git clone https://github.com/Adtrac/pi-config.git ~/.pi/agent
 # 3. Run setup (installs packages and writes default settings if missing)
 cd ~/.pi/agent && ./setup.sh
 
+# 4. Install shared global skills used by this config
+npx skills add forrestchang/andrej-karpathy-skills -g -a universal --skill karpathy-guidelines -y
+npx skills add mattpocock/skills -g -a universal --skill grill-with-docs -y
+npx skills add vercel-labs/agent-browser -g -a universal --skill agent-browser -y
+npx skills add pproenca/dot-skills -g -a universal --skill ast-grep -y
+npx skills add upstash/context7 -g -a universal --skill find-docs -y
+npx skills add code-and-sorts/awesome-copilot-agents -g -a universal --skill jira-cli -y
+npx skills add Mathuv/awesome-codex-skills -g -a universal --skill gh-address-comments -y
+npx skills add nicobailon/visual-explainer -g -a universal --skill visual-explainer -y
+
+# 5. Optional: add personal instructions
+cp APPEND_SYSTEM.example.md APPEND_SYSTEM.md
+$EDITOR APPEND_SYSTEM.md
+
 ```
 
 Add credentials to ~/.pi/agent/auth.json and restart pi or run `/login` slash command after running pi. If you use the optional Deepseek models in models.json, also provide DEEPSEEK_API_KEY in your environment.
 
+### Shared global skills
+
+This config references a few skills that better live outside this repo under `~/.agents/skills/`. Install them with the [Vercel Skills CLI](https://github.com/vercel-labs/skills):
+
+```bash
+npx skills add juliusbrussee/caveman -g -a universal --skill caveman -y
+npx skills add forrestchang/andrej-karpathy-skills -g -a universal --skill karpathy-guidelines -y
+npx skills add mattpocock/skills -g -a universal --skill grill-with-docs -y
+npx skills add vercel-labs/agent-browser -g -a universal --skill agent-browser -y
+npx skills add pproenca/dot-skills -g -a universal --skill ast-grep -y
+npx skills add upstash/context7 -g -a universal --skill find-docs -y
+npx skills add code-and-sorts/awesome-copilot-agents -g -a universal --skill jira-cli -y
+npx skills add Mathuv/awesome-codex-skills -g -a universal --skill gh-address-comments -y
+npx skills add nicobailon/visual-explainer -g -a universal --skill visual-explainer -y
+```
+
+Sources:
+
+- `https://github.com/juliusbrussee/caveman`: `caveman`
+- `https://github.com/forrestchang/andrej-karpathy-skills`: `karpathy-guidelines`
+- `https://github.com/mattpocock/skills`: `grill-with-docs`
+- `https://github.com/vercel-labs/agent-browser`: `agent-browser`
+- `https://github.com/pproenca/dot-skills`: `ast-grep`
+- `https://github.com/upstash/context7`: `find-docs`
+- `https://github.com/code-and-sorts/awesome-copilot-agents`: `jira-cli`
+- `https://github.com/Mathuv/awesome-codex-skills`: `gh-address-comments`
+- `https://github.com/nicobailon/visual-explainer`: `visual-explainer`
+
+These skills are used by `AGENTS.md`, `agents.json`, and the default skill discovery list. Re-run the commands when bootstrapping a new machine or when refreshing shared global skills.
+
+### CLI tools
+
+This config assumes these command-line tools are available on `PATH`:
+
+```bash
+# Core bootstrap/runtime
+git --version
+pi --version
+node --version
+npm --version
+npx --version
+uv --version
+
+# Agent workflow + config instructions
+cmux --version
+rtk --version
+icm --version
+gh --version
+
+# MCP servers in mcp.json
+npx --version
+
+# Extension-backed behavior
+ctags --list-features | grep -q json   # must be Universal Ctags, not macOS BSD ctags
+ast-grep --version
+
+# Skills installed under ~/.agents/skills
+agent-browser --version
+ctx7 --version
+jira version
+
+```
+
+Sources in this repo:
+
+- `setup.sh` / `settings.json`: `pi`, `git`, `node`, `npm`, `npx`
+- `extensions/uv.ts` + `intercepted-commands/`: `uv` and a Python interpreter discoverable by `uv`
+- `extensions/cmux/index.ts`: `cmux` when Pi runs inside cmux (`CMUX_SOCKET_PATH` set)
+- `extensions/prompt-url-widget.ts`: `gh` for PR/issue URL metadata
+- `mcp.json`: `npx` for Postgres MCP servers 
+- `AGENTS.md`: `rtk` and `icm`
+- `git:github.com/Mathuv/symbol-autocomplete`: `ctags` preferred, `ast-grep` fallback
+- Global skills: `agent-browser`, `ctx7` (`find-docs`), `jira`, `gh`, and optional `surf` for `visual-explainer`
+
+Install examples for the non-core tools:
+
+```bash
+# macOS/Homebrew examples
+brew install gh universal-ctags ast-grep ankitpokhrel/jira-cli/jira-cli
+# On macOS, ensure Homebrew's Universal Ctags appears before /usr/bin/ctags on PATH.
+
+# npm-backed CLIs
+npm install -g agent-browser ctx7@latest
+agent-browser install
+
+# Project-specific tools; install from their upstream docs if missing
+# - cmux: https://www.cmux.dev/
+# - rtk + icm: https://github.com/rtk-ai/icm
+```
+
+### Personalization
+
+`AGENTS.md` is shared team config and should stay team-neutral. Put personal identity, preferences, and workflow notes in `APPEND_SYSTEM.md` instead.
+
+Pi loads `APPEND_SYSTEM.md` as extra system-prompt context. This file is ignored by git, so each team member can keep their own local version without changing shared config.
+
+Start from the example:
+
+```bash
+cd ~/.pi/agent
+cp APPEND_SYSTEM.example.md APPEND_SYSTEM.md
+$EDITOR APPEND_SYSTEM.md
+```
+
+Example content:
+
+```md
+# Personal Instructions
+
+I am `<github-username>` aka `<name>` on GitHub and other places.
+Prefer concise answers.
+```
+
+After editing, restart pi or run `/reload`.
 
 ### Updating
 
