@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.75.4",
+  "lastChangelogVersion": "0.75.5",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "high",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "git:github.com/pasky/chrome-cdp-skill",
     "git:github.com/HazAT/glimpse",
@@ -22,7 +22,7 @@
     "git:github.com/nicobailon/pi-mcp-adapter",
     "git:github.com/HazAT/pi-parallel",
     {
-      "source": "git:github.com/obra/superpowers",
+      "source": "git:github.com/adtrac/superpowers",
       "skills": [
         "skills/*/SKILL.md",
         "!skills/using-superpowers/SKILL.md"
