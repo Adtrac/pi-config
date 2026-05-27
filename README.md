@@ -1,6 +1,6 @@
 # Pi Config
 
-My personal [pi](https://github.com/earendil-works/pi) configuration — agents, skills, extensions, and prompts that shape how pi works for me.
+Adtrac team's [pi](https://github.com/earendil-works/pi) configuration — agents, skills, extensions, and prompts that shape how pi works the team.
 
 ## Setup
 
@@ -32,7 +32,7 @@ cd ~/.pi/agent && ./setup.sh
 npx skills add forrestchang/andrej-karpathy-skills -g -a universal --skill karpathy-guidelines -y
 npx skills add mattpocock/skills -g -a universal --skill grill-with-docs -y
 npx skills add vercel-labs/agent-browser -g -a universal --skill agent-browser -y
-npx skills add pproenca/dot-skills -g -a universal --skill ast-grep -y
+npx skills add ast-grep/agent-skill -g -a universal --skill ast-grep -y
 npx skills add upstash/context7 -g -a universal --skill find-docs -y
 npx skills add code-and-sorts/awesome-copilot-agents -g -a universal --skill jira-cli -y
 npx skills add Mathuv/awesome-codex-skills -g -a universal --skill gh-address-comments -y
@@ -51,7 +51,6 @@ Add credentials to ~/.pi/agent/auth.json and restart pi or run `/login` slash co
 This config references a few skills that better live outside this repo under `~/.agents/skills/`. Install them with the [Vercel Skills CLI](https://github.com/vercel-labs/skills):
 
 ```bash
-npx skills add juliusbrussee/caveman -g -a universal --skill caveman -y
 npx skills add forrestchang/andrej-karpathy-skills -g -a universal --skill karpathy-guidelines -y
 npx skills add mattpocock/skills -g -a universal --skill grill-with-docs -y
 npx skills add vercel-labs/agent-browser -g -a universal --skill agent-browser -y
@@ -64,15 +63,14 @@ npx skills add nicobailon/visual-explainer -g -a universal --skill visual-explai
 
 Sources:
 
-- `https://github.com/juliusbrussee/caveman`: `caveman`
-- `https://github.com/forrestchang/andrej-karpathy-skills`: `karpathy-guidelines`
-- `https://github.com/mattpocock/skills`: `grill-with-docs`
-- `https://github.com/vercel-labs/agent-browser`: `agent-browser`
-- `https://github.com/pproenca/dot-skills`: `ast-grep`
-- `https://github.com/upstash/context7`: `find-docs`
-- `https://github.com/code-and-sorts/awesome-copilot-agents`: `jira-cli`
-- `https://github.com/Mathuv/awesome-codex-skills`: `gh-address-comments`
-- `https://github.com/nicobailon/visual-explainer`: `visual-explainer`
+- [`forrestchang/andrej-karpathy-skills`](https://github.com/forrestchang/andrej-karpathy-skills): `karpathy-guidelines`
+- [`mattpocock/skills`](https://github.com/mattpocock/skills): `grill-with-docs`
+- [`vercel-labs/agent-browser`](https://github.com/vercel-labs/agent-browser): `agent-browser`
+- [`ast-grep/agent-skill`](https://github.com/ast-grep/agent-skill): `ast-grep`
+- [`upstash/context7`](https://github.com/upstash/context7): `find-docs`
+- [`code-and-sorts/awesome-copilot-agents`](https://github.com/code-and-sorts/awesome-copilot-agents): `jira-cli`
+- [`Mathuv/awesome-codex-skills`](https://github.com/Mathuv/awesome-codex-skills): `gh-address-comments`
+- [`nicobailon/visual-explainer`](https://github.com/nicobailon/visual-explainer): `visual-explainer`
 
 These skills are used by `AGENTS.md`, `agents.json`, and the default skill discovery list. Re-run the commands when bootstrapping a new machine or when refreshing shared global skills.
 
@@ -80,34 +78,23 @@ These skills are used by `AGENTS.md`, `agents.json`, and the default skill disco
 
 This config assumes these command-line tools are available on `PATH`:
 
-```bash
-# Core bootstrap/runtime
-git --version
-pi --version
-node --version
-npm --version
-npx --version
-uv --version
-
-# Agent workflow + config instructions
-cmux --version
-rtk --version
-icm --version
-gh --version
-
-# MCP servers in mcp.json
-npx --version
-
-# Extension-backed behavior
-ctags --list-features | grep -q json   # must be Universal Ctags, not macOS BSD ctags
-ast-grep --version
-
-# Skills installed under ~/.agents/skills
-agent-browser --version
-ctx7 --version
-jira version
-
-```
+| Tool | Install/source |
+|------|----------------|
+| `git` | `brew install git` |
+| `pi` | `curl -fsSL https://pi.dev/install.sh \| sh` |
+| `node` | `brew install node` |
+| `npm` | comes with [Node.js](https://nodejs.org/) |
+| `npx` | comes with [Node.js](https://nodejs.org/) |
+| `uv` | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| `cmux` | [cmux](https://cmux.com/) or [WezTerm](https://wezterm.org/) |
+| `rtk` | `curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh \| sh` |
+| `icm` | `curl -fsSL https://raw.githubusercontent.com/rtk-ai/icm/main/install.sh \| sh` |
+| `gh` | `brew install gh` |
+| `ctags` | [Universal Ctags](https://github.com/universal-ctags/ctags) |
+| `ast-grep` | [ast-grep](https://github.com/ast-grep/ast-grep) |
+| `agent-browser` | [agent-browser](https://github.com/vercel-labs/agent-browser) |
+| `ctx7` | [context7](https://github.com/upstash/context7) |
+| `jira` | [jira-cli](https://github.com/ankitpokhrel/jira-cli) |
 
 Sources in this repo:
 
@@ -117,24 +104,15 @@ Sources in this repo:
 - `extensions/prompt-url-widget.ts`: `gh` for PR/issue URL metadata
 - `mcp.json`: `npx` for Postgres MCP servers 
 - `AGENTS.md`: `rtk` and `icm`
-- `git:github.com/Mathuv/symbol-autocomplete`: `ctags` preferred, `ast-grep` fallback
+- [Mathuv/symbol-autocomplete](https://github.com/Mathuv/symbol-autocomplete): `ctags` preferred, `ast-grep` fallback
 - Global skills: `agent-browser`, `ctx7` (`find-docs`), `jira`, `gh`, and optional `surf` for `visual-explainer`
 
 Install examples for the non-core tools:
 
-```bash
-# macOS/Homebrew examples
-brew install gh universal-ctags ast-grep ankitpokhrel/jira-cli/jira-cli
-# On macOS, ensure Homebrew's Universal Ctags appears before /usr/bin/ctags on PATH.
+- [cmux](https://www.cmux.dev/) - install from upstream docs.
+- [rtk + icm](https://github.com/rtk-ai/icm) - install from upstream docs.
 
-# npm-backed CLIs
-npm install -g agent-browser ctx7@latest
-agent-browser install
-
-# Project-specific tools; install from their upstream docs if missing
-# - cmux: https://www.cmux.dev/
-# - rtk + icm: https://github.com/rtk-ai/icm
-```
+During verification on this machine, `ctx7` was missing and `ctags` resolved to macOS BSD ctags, which does not support the `--output-format=json` mode required by symbol autocomplete. Install Universal Ctags and ensure it shadows `/usr/bin/ctags`.
 
 ### Personalization
 
@@ -184,7 +162,7 @@ This config uses **subagents** — visible pi sessions spawned in cmux terminals
 
 ## Agents
 
-Specialized roles with baked-in identity, workflow, and review rubrics. Most agents now ship with the [pi-interactive-subagents](https://github.com/HazAT/pi-interactive-subagents) package; local overrides live in `agents/`.
+Specialized roles with baked-in identity, workflow, and review rubrics. Most agents now ship with the [pi-interactive-subagents](https://github.com/Mathuv/pi-interactive-subagents) package; local overrides live in `agents/`.
 
 | Agent | Source | Purpose |
 |-------|--------|---------|
@@ -243,9 +221,9 @@ Installed via `pi install`, managed in `settings.json`.
 
 | Package | Description |
 |---------|-------------|
-| [pi-interactive-subagents](https://github.com/HazAT/pi-interactive-subagents) | Subagent tools + agent definitions + `/plan`, `/subagent`, `/iterate` commands |
+| [pi-interactive-subagents](https://github.com/Mathuv/pi-interactive-subagents) | Subagent tools + agent definitions + `/plan`, `/subagent`, `/iterate` commands |
 | [pi-parallel](https://github.com/HazAT/pi-parallel) | Parallel web search, extract, research, and enrich tools |
-| [pi-smart-sessions](https://github.com/HazAT/pi-smart-sessions) | AI-generated session names |
+| [pi-smart-sessions](https://github.com/Mathuv/pi-smart-sessions) | AI-generated session names |
 | [pi-diff-review](https://github.com/badlogic/pi-diff-review) | Interactive diff review UI |
 | [chrome-cdp-skill](https://github.com/pasky/chrome-cdp-skill) | Chrome DevTools Protocol CLI for visual testing |
 

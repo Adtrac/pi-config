@@ -10,7 +10,7 @@ if [ "$SCRIPT_DIR" != "$EXPECTED_DIR" ]; then
   echo "   Current location: $SCRIPT_DIR"
   echo "   Expected: $EXPECTED_DIR"
   echo ""
-  echo "   Run: git clone git@github.com:Mathuv/pi-config $EXPECTED_DIR"
+  echo "   Run: git clone git@github.com:adtrac/pi-config $EXPECTED_DIR"
   exit 1
 fi
 
