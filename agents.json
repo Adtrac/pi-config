@@ -13,6 +13,10 @@
     "thinking": "xhigh",
     "skills": "karpathy-guidelines,grill-with-docs"
   },
+  "researcher": {
+    "model": "openai-codex/gpt-5.4-mini",
+    "thinking": "xhigh"
+  },
   "reviewer": {
     "model": "openai-codex/gpt-5.3-codex",
     "thinking": "high",
