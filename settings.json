@@ -24,7 +24,6 @@
         "!skills/using-superpowers/SKILL.md"
       ]
     },
-    "git:github.com/Mathuv/symbol-autocomplete",
     "git:github.com/Mathuv/pi-interactive-subagents"
   ],
   "hideThinkingBlock": false,
