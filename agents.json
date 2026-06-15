@@ -1,16 +1,16 @@
 {
   "worker": {
-    "model": "opencode-go/deepseek-v4-flash",
+    "model": "deepseek/deepseek-v4-flash",
     "thinking": "xhigh",
     "skills": "karpathy-guidelines"
   },
   "scout": {
-    "model": "opencode-go/deepseek-v4-flash",
+    "model": "deepseek/deepseek-v4-flash",
     "thinking": "high"
   },
   "planner": {
     "model": "openai-codex/gpt-5.5",
-    "thinking": "xhigh",
+    "thinking": "high",
     "skills": "karpathy-guidelines,grill-with-docs"
   },
   "researcher": {
@@ -18,8 +18,13 @@
     "thinking": "xhigh"
   },
   "reviewer": {
-    "model": "openai-codex/gpt-5.3-codex",
+    "model": "openai-codex/gpt-5.4",
     "thinking": "high",
     "skills": "karpathy-guidelines"
+  },
+  "visual-tester": {
+    "model": "openai-codex/gpt-5.4-mini",
+    "thinking": "xhigh",
+    "skills": "chrome-cdp"
   }
 }
