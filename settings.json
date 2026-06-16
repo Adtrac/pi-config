@@ -28,6 +28,7 @@
         "!skills/using-superpowers/SKILL.md"
       ]
     },
+    "git:github.com/Mathuv/pi-help",
     "git:github.com/Mathuv/pi-interactive-subagents"
   ],
   "hideThinkingBlock": false,
@@ -36,7 +37,7 @@
     "+extensions/uv.ts"
   ],
   "compaction": {
-    "enabled": false
+    "enabled": true
   },
   "terminal": {
     "clearOnShrink": false,
