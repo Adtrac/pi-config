@@ -12,6 +12,13 @@
           "input": [
             "text"
           ],
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": "low",
+            "medium": null,
+            "high": "high",
+            "max": "max"
+          },
           "contextWindow": 1000000,
           "maxTokens": 384000,
           "cost": {
@@ -21,17 +28,26 @@
             "cacheWrite": 0
           },
           "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
             "requiresReasoningContentOnAssistantMessages": true,
             "thinkingFormat": "deepseek"
           }
         },
-        {
+        { 
           "id": "deepseek-v4-pro",
           "name": "DeepSeek V4 Pro",
           "reasoning": true,
           "input": [
             "text"
           ],
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": "high",
+            "max": "max"
+          },
           "contextWindow": 1000000,
           "maxTokens": 384000,
           "cost": {
@@ -41,6 +57,8 @@
             "cacheWrite": 0
           },
           "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
             "requiresReasoningContentOnAssistantMessages": true,
             "thinkingFormat": "deepseek"
           }
