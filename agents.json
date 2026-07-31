@@ -6,24 +6,24 @@
   },
   "scout": {
     "model": "deepseek/deepseek-v4-flash",
-    "thinking": "high"
+    "thinking": "xhigh"
   },
   "planner": {
-    "model": "openai-codex/gpt-5.5",
-    "thinking": "high",
+    "model": "openai-codex/gpt-5.6-sol",
+    "thinking": "xhigh",
     "skills": "karpathy-guidelines,grill-with-docs"
   },
   "researcher": {
-    "model": "openai-codex/gpt-5.4-mini",
+    "model": "openai-codex/gpt-5.6-luna",
     "thinking": "xhigh"
   },
   "reviewer": {
-    "model": "openai-codex/gpt-5.4",
-    "thinking": "high",
+    "model": "openai-codex/gpt-5.6-sol",
+    "thinking": "xhigh",
     "skills": "karpathy-guidelines"
   },
   "visual-tester": {
-    "model": "openai-codex/gpt-5.4-mini",
+    "model": "openai-codex/gpt-5.6-luna",
     "thinking": "xhigh",
     "skills": "chrome-cdp"
   }
