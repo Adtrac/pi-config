@@ -94,7 +94,6 @@ This config assumes these command-line tools are available on `PATH`:
 | `icm` | `curl -fsSL https://raw.githubusercontent.com/rtk-ai/icm/main/install.sh \| sh` |
 | `gh` | `brew install gh` |
 | `fff-mcp` | provided by `@ff-labs/pi-fff` or local `~/.local/bin` install |
-| `headroom` | local MCP CLI configured in `mcp.json` |
 | `ctags` | [Universal Ctags](https://github.com/universal-ctags/ctags) |
 | `ast-grep` | [ast-grep](https://github.com/ast-grep/ast-grep) |
 | `agent-browser` | [agent-browser](https://github.com/vercel-labs/agent-browser) |
@@ -109,7 +108,7 @@ Sources in this repo:
 - `extensions/cmux/index.ts`: `cmux` when Pi runs inside cmux (`CMUX_SOCKET_PATH` set)
 - `extensions/prompt-url-widget.ts`: `gh` for PR/issue URL metadata
 - `extensions/atuin.py`: `atuin` if that optional extension is enabled
-- `mcp.json`: `npx` for Postgres MCP servers, `fff-mcp`, and `headroom`
+- `mcp.json`: `npx` for Postgres MCP servers and `fff-mcp`
 - `AGENTS.md`: `rtk` and `icm`
 - [Mathuv/symbol-autocomplete](https://github.com/Mathuv/symbol-autocomplete): `ctags` preferred, `ast-grep` fallback
 - Global skills: `agent-browser`, `ctx7` (`find-docs`), `jira`, `gh`, and optional `surf` for `visual-explainer`
@@ -119,9 +118,8 @@ Install examples for the non-core tools:
 - [cmux](https://www.cmux.dev/) - install from upstream docs.
 - [rtk + icm](https://github.com/rtk-ai/icm) - install from upstream docs.
 - `fff-mcp` - provided by `@ff-labs/pi-fff` or local `~/.local/bin` install.
-- `headroom` - local MCP CLI configured in `mcp.json`.
 
-During verification on this machine, `ctx7` was missing and `ctags` resolved to macOS BSD ctags, which does not support the `--output-format=json` mode required by symbol autocomplete. Install Universal Ctags and ensure it shadows `/usr/bin/ctags`.
+MacOS comes pre-installed with BSD ctags, which does not support the `--output-format=json` mode required by symbol autocomplete. Install Universal Ctags and ensure it shadows `/usr/bin/ctags`.
 
 ### Personalization
 
