@@ -14,7 +14,7 @@
     "skills": "karpathy-guidelines,grill-with-docs"
   },
   "researcher": {
-    "model": "openai-codex/gpt-5.6-luna",
+    "model": "openai-codex/gpt-5.6-terra",
     "thinking": "xhigh"
   },
   "reviewer": {
@@ -23,8 +23,8 @@
     "skills": "karpathy-guidelines"
   },
   "visual-tester": {
-    "model": "openai-codex/gpt-5.6-luna",
-    "thinking": "xhigh",
+    "model": "openai-codex/gpt-5.6-terra",
+    "thinking": "high",
     "skills": "chrome-cdp"
   }
 }

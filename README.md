@@ -112,7 +112,7 @@ Install examples for the non-core tools:
 - [cmux](https://www.cmux.dev/) - install from upstream docs.
 - [rtk + icm](https://github.com/rtk-ai/icm) - install from upstream docs.
 
-During verification on this machine, `ctx7` was missing and `ctags` resolved to macOS BSD ctags, which does not support the `--output-format=json` mode required by symbol autocomplete. Install Universal Ctags and ensure it shadows `/usr/bin/ctags`.
+MacOS comes pre-installed with BSD ctags, which does not support the `--output-format=json` mode required by symbol autocomplete. Install Universal Ctags and ensure it shadows `/usr/bin/ctags`.
 
 ### Personalization
 
