@@ -19,8 +19,7 @@
     "git:github.com/nicobailon/pi-boomerang",
     "git:github.com/Mathuv/pi-advisor",
     "git:github.com/mattleong/pi-code-previews",
-    "git:github.com/fu5ha/pi-treebase",
-    "git:github.com/nicobailon/pi-mcp-adapter",
+    "npm:pi-mcp-adapter",
     "git:github.com/HazAT/pi-parallel",
     {
       "source": "git:github.com/adtrac/superpowers",
