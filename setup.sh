@@ -23,8 +23,8 @@ if [ ! -f "$EXPECTED_DIR/settings.json" ]; then
   cat > "$EXPECTED_DIR/settings.json" << 'EOF'
 {
   "lastChangelogVersion": "0.75.4",
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.4",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-6-luna",
   "defaultThinkingLevel": "xhigh",
   "packages": [
     "git:github.com/pasky/chrome-cdp-skill",
@@ -64,29 +64,6 @@ if [ ! -f "$EXPECTED_DIR/settings.json" ]; then
   "powerline": {
     "preset": "default",
     "fixedEditor": false
-  },
-  "subagents": {
-    "agentOverrides": {
-      "reviewer": {
-        "model": "openai-codex/gpt-5.3-codex",
-        "thinking": "high",
-        "fallbackModels": [
-          "opencode-go/deepseek-v4-pro"
-        ]
-      },
-      "worker": {
-        "model": "opencode-go/deepseek-v4-flash",
-        "thinking": "xhigh"
-      },
-      "scout": {
-        "model": "opencode-go/deepseek-v4-flash",
-        "thinking": "high"
-      },
-      "planner": {
-        "model": "openai-codex/gpt-5.3-codex",
-        "thinking": "xhigh"
-      }
-    }
   },
   "transport": "websocket-cached"
 }

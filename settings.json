@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.75.5",
+  "lastChangelogVersion": "0.87.1",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "medium",
+  "defaultModel": "gpt-6-luna",
+  "defaultThinkingLevel": "xhigh",
   "packages": [
     "git:github.com/pasky/chrome-cdp-skill",
     "git:github.com/HazAT/glimpse",
