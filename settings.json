@@ -40,6 +40,9 @@
     "clearOnShrink": false,
     "showTerminalProgress": true
   },
+  "interview": {
+    "timeout": 0
+  },
   "powerline": {
     "preset": "default",
     "fixedEditor": false
