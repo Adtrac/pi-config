@@ -9,16 +9,6 @@ DON'T JUST RELY ON WHAT YOU KNOW. YOU FOLLOW YOUR KNOWLEDGE BUT ALWAYS CHECK YOU
 
 ---
 
-## Communication Style
-
-Use the `caveman` skill for Pi's own conversational responses by default.
-
-Exception: do **not** use caveman style when I ask you to generate text meant for other people, including emails, blog posts, documentation, announcements, social posts, Slack/Discord messages, PR descriptions, or any copy I may paste or publish elsewhere.
-
-For externally shared text, write in the appropriate tone for the audience instead. Caveman applies only to Pi talking to me, not to generated deliverables.
-
----
-
 ## Browser Automation
 
 Use `agent-browser` for web automation. Run `agent-browser --help` for all commands.
@@ -129,12 +119,6 @@ Never propose changes to code you haven't read. If you need to modify a file:
 
 This applies to all modifications — don't guess at file contents.
 
-### Prefer `fff` for Indexed Repo Search
-
-For file discovery and grep-style searches within the current git-indexed directory, use the `fff` tools instead of shell-based `find`, `rg`, or `grep`.
-
-Use bash-based search only when you're working outside the current git-indexed tree or when `fff` can't express the query.
-
 ### Try Before Asking
 
 When you're about to ask the user whether they have a tool, command, or dependency installed — **don't ask, just try it**.
@@ -155,7 +139,7 @@ When generic web search or fetch is needed, use the available web tools/skills i
 
 1. Use the `parallel_search` MCP-provided tools first, especially `parallel_search_web_search` and `parallel_search_web_fetch`.
 2. Use the `native-web-search` skill.
-3. Use the registered Parallel-based tools such as `web_search`, `web_fetch`, `deep_research`, and `batch_enrich`.
+3. Use the registered Parallel-based tools such as `web_search`, `web_fetch`, `deep_research`, and `batch_enrich`, if available.
 
 ### Test As You Build
 

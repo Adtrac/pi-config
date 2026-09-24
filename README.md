@@ -1,6 +1,6 @@
 # Pi Config
 
-My personal [pi](https://github.com/earendil-works/pi) configuration — agents, skills, extensions, and prompts that shape how pi works for me.
+Adtrac team's [pi](https://github.com/earendil-works/pi) configuration — agents, skills, extensions, and prompts that shape how pi works the team.
 
 ## Setup
 
@@ -23,13 +23,12 @@ See [CLI tools](#cli-tools) for the full bootstrap list used by config files, MC
 
 # 2. Clone this repo as your agent config
 mkdir -p ~/.pi
-git clone git@github.com:Mathuv/pi-config ~/.pi/agent
+git clone https://github.com/Adtrac/pi-config.git ~/.pi/agent
 
 # 3. Run setup (installs packages and writes default settings if missing)
 cd ~/.pi/agent && ./setup.sh
 
 # 4. Install shared global skills used by this config
-npx skills add juliusbrussee/caveman -g -a universal --skill caveman -y
 npx skills add forrestchang/andrej-karpathy-skills -g -a universal --skill karpathy-guidelines -y
 npx skills add mattpocock/skills -g -a universal --skill grill-with-docs -y
 npx skills add vercel-labs/agent-browser -g -a universal --skill agent-browser -y
@@ -52,7 +51,6 @@ Add credentials to ~/.pi/agent/auth.json and restart pi or run `/login` slash co
 This config references a few skills that better live outside this repo under `~/.agents/skills/`. Install them with the [Vercel Skills CLI](https://github.com/vercel-labs/skills):
 
 ```bash
-npx skills add juliusbrussee/caveman -g -a universal --skill caveman -y
 npx skills add forrestchang/andrej-karpathy-skills -g -a universal --skill karpathy-guidelines -y
 npx skills add mattpocock/skills -g -a universal --skill grill-with-docs -y
 npx skills add vercel-labs/agent-browser -g -a universal --skill agent-browser -y
@@ -65,11 +63,10 @@ npx skills add nicobailon/visual-explainer -g -a universal --skill visual-explai
 
 Sources:
 
-- [`juliusbrussee/caveman`](https://github.com/juliusbrussee/caveman): `caveman`
 - [`forrestchang/andrej-karpathy-skills`](https://github.com/forrestchang/andrej-karpathy-skills): `karpathy-guidelines`
 - [`mattpocock/skills`](https://github.com/mattpocock/skills): `grill-with-docs`
 - [`vercel-labs/agent-browser`](https://github.com/vercel-labs/agent-browser): `agent-browser`
-- [`pproenca/dot-skills`](https://github.com/pproenca/dot-skills): `ast-grep`
+- [`ast-grep/agent-skill`](https://github.com/ast-grep/agent-skill): `ast-grep`
 - [`upstash/context7`](https://github.com/upstash/context7): `find-docs`
 - [`code-and-sorts/awesome-copilot-agents`](https://github.com/code-and-sorts/awesome-copilot-agents): `jira-cli`
 - [`Mathuv/awesome-codex-skills`](https://github.com/Mathuv/awesome-codex-skills): `gh-address-comments`
@@ -93,14 +90,13 @@ This config assumes these command-line tools are available on `PATH`:
 | `rtk` | `curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh \| sh` |
 | `icm` | `curl -fsSL https://raw.githubusercontent.com/rtk-ai/icm/main/install.sh \| sh` |
 | `gh` | `brew install gh` |
-| `fff-mcp` | provided by `@ff-labs/pi-fff` or local `~/.local/bin` install |
 | `ctags` | [Universal Ctags](https://github.com/universal-ctags/ctags) |
 | `ast-grep` | [ast-grep](https://github.com/ast-grep/ast-grep) |
 | `agent-browser` | [agent-browser](https://github.com/vercel-labs/agent-browser) |
 | `ctx7` | [context7](https://github.com/upstash/context7) |
 | `jira` | [jira-cli](https://github.com/ankitpokhrel/jira-cli) |
-| `atuin` | [atuin](https://github.com/atuinsh/atuin) |
 | `glimpse` | [glimpse](https://github.com/HazAT/glimpse) - `npm install -g glimpseui` |
+
 
 Sources in this repo:
 
@@ -108,8 +104,7 @@ Sources in this repo:
 - `extensions/uv.ts` + `intercepted-commands/`: `uv` and a Python interpreter discoverable by `uv`
 - `extensions/cmux/index.ts`: `cmux` when Pi runs inside cmux (`CMUX_SOCKET_PATH` set)
 - `extensions/prompt-url-widget.ts`: `gh` for PR/issue URL metadata
-- `extensions/atuin.py`: `atuin` if that optional extension is enabled
-- `mcp.json`: `npx` for Postgres MCP servers and `fff-mcp`
+- `mcp.json`: `npx` for Postgres MCP servers 
 - `AGENTS.md`: `rtk` and `icm`
 - [Mathuv/symbol-autocomplete](https://github.com/Mathuv/symbol-autocomplete): `ctags` preferred, `ast-grep` fallback
 - Global skills: `agent-browser`, `ctx7` (`find-docs`), `jira`, `gh`, and optional `surf` for `visual-explainer`
@@ -118,7 +113,6 @@ Install examples for the non-core tools:
 
 - [cmux](https://www.cmux.dev/) - install from upstream docs.
 - [rtk + icm](https://github.com/rtk-ai/icm) - install from upstream docs.
-- `fff-mcp` - provided by `@ff-labs/pi-fff` or local `~/.local/bin` install.
 
 MacOS comes pre-installed with BSD ctags, which does not support the `--output-format=json` mode required by symbol autocomplete. Install Universal Ctags and ensure it shadows `/usr/bin/ctags`.
 
@@ -193,14 +187,12 @@ Loaded on-demand when the context matches.
 | **code-simplifier** | Simplifying or cleaning up code |
 | **frontend-design** | Building web components, pages, or apps |
 | **github** | Working with GitHub via `gh` CLI |
-| **iterate-pr** | Iterating on a PR until CI passes |
 | **learn-codebase** | Onboarding to a new project, checking conventions |
 | **session-reader** | Reading and analyzing pi session JSONL files |
 | **skill-creator** | Scaffolding new agent skills |
 | **write-todos** | Writing clear, actionable todos from a plan |
 | **self-improve** | End-of-session retrospective — surfaces improvements and creates todos |
 | **cmux** | Managing terminal sessions via cmux |
-| **presentation-creator** | Creating data-driven presentation slides |
 | **add-mcp-server** | Adding MCP server configurations |
 
 ## Extensions
@@ -212,7 +204,6 @@ Loaded on-demand when the context matches.
 | **cost/** | `/cost` command — API cost summary |
 | **execute-command/** | `execute_command` tool — lets the agent self-invoke slash commands |
 | **todos/** | `/todos` command + `todo` tool — file-based todo management |
-| **destructive-confirm/** | Safety gate for destructive `bash`/`write`/`edit` tool calls. See [`extensions/destructive-confirm/README.md`](extensions/destructive-confirm/README.md). |
 | **uv.ts** | uv-first Python guardrail for the `bash` tool — prepends command shims, routes bare `python` / `python3` through `uv run`, and blocks `pip`, `pip3`, and `poetry`. Benefit: keeps agent Python usage portable and consistent across Pi sessions instead of depending on shell-local setup. |
 
 ## Commands
