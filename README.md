@@ -95,6 +95,8 @@ This config assumes these command-line tools are available on `PATH`:
 | `agent-browser` | [agent-browser](https://github.com/vercel-labs/agent-browser) |
 | `ctx7` | [context7](https://github.com/upstash/context7) |
 | `jira` | [jira-cli](https://github.com/ankitpokhrel/jira-cli) |
+| `glimpse` | [glimpse](https://github.com/HazAT/glimpse) - `npm install -g glimpseui` |
+
 
 Sources in this repo:
 
