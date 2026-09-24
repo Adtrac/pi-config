@@ -1,12 +1,12 @@
 {
   "worker": {
-    "model": "deepseek/deepseek-v4-flash",
-    "thinking": "max",
+    "model": "deepseek/deepseek-flash",
+    "thinking": "high",
     "skills": "karpathy-guidelines"
   },
   "scout": {
-    "model": "deepseek/deepseek-v4-flash",
-    "thinking": "max"
+    "model": "deepseek/deepseek-flash",
+    "thinking": "high"
   },
   "planner": {
     "model": "openai-codex/gpt-6-sol",

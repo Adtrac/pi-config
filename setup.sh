@@ -23,8 +23,8 @@ if [ ! -f "$EXPECTED_DIR/settings.json" ]; then
   cat > "$EXPECTED_DIR/settings.json" << 'EOF'
 {
   "lastChangelogVersion": "0.75.4",
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.4",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-6-luna",
   "defaultThinkingLevel": "xhigh",
   "packages": [
     "git:github.com/pasky/chrome-cdp-skill",
