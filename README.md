@@ -100,6 +100,7 @@ This config assumes these command-line tools are available on `PATH`:
 | `ctx7` | [context7](https://github.com/upstash/context7) |
 | `jira` | [jira-cli](https://github.com/ankitpokhrel/jira-cli) |
 | `atuin` | [atuin](https://github.com/atuinsh/atuin) |
+| `glimpse` | [glimpse](https://github.com/HazAT/glimpse) - `npm install -g glimpseui` |
 
 Sources in this repo:
 
