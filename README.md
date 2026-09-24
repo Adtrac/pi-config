@@ -198,6 +198,7 @@ Loaded on-demand when the context matches.
 | Extension | What it provides |
 |-----------|------------------|
 | **answer/** | `/answer` command + `Ctrl+.` — extracts questions into interactive Q&A UI |
+| **campaign-report/** | `/campaign-report <campaign-id>` — generates a campaign report directly from `postgres_prod`, writes ephemeral files to a temp dir, and opens a light HTML report in cmux |
 | **cmux/** | cmux integration — notifications, sidebar, workspace tools |
 | **cost/** | `/cost` command — API cost summary |
 | **execute-command/** | `execute_command` tool — lets the agent self-invoke slash commands |
@@ -212,6 +213,7 @@ Loaded on-demand when the context matches.
 | `/subagent <agent> <task>` | Spawn a subagent (e.g., `/subagent scout analyze the auth module`) |
 | `/iterate [task]` | Fork session into interactive subagent for quick fixes |
 | `/answer` | Extract questions into interactive Q&A |
+| `/campaign-report <campaign-id>` | Generate an ephemeral campaign report from `postgres_prod` without an LLM roundtrip |
 | `/todos` | Visual todo manager |
 | `/cost` | API cost summary |
 

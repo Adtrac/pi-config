@@ -22,6 +22,10 @@ session-manager-config.toml
 # Extension dependencies (install locally)
 extensions/*/node_modules/
 
+# Python runtime artifacts
+**/__pycache__/
+*.pyc
+
 # OS files
 .DS_Store
 Thumbs.db
