@@ -6,7 +6,7 @@
     },
     "parallel-search": {
       "url": "https://search.parallel.ai/mcp",
-      "directTools": true
+      "exposure": "direct"
     }
   }
 }
