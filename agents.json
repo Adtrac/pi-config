@@ -1,15 +1,15 @@
 {
   "worker": {
-    "model": "deepseek/deepseek-flash",
-    "thinking": "high",
+    "model": "openai-codex/gpt-6-luna",
+    "thinking": "xhigh",
     "skills": "karpathy-guidelines"
   },
   "scout": {
-    "model": "deepseek/deepseek-flash",
-    "thinking": "high"
+    "model": "openai-codex/gpt-6-luna",
+    "thinking": "max"
   },
   "planner": {
-    "model": "openai-codex/gpt-6-sol",
+    "model": "openai-codex/gpt-6.1-sol",
     "thinking": "xhigh",
     "skills": "karpathy-guidelines,grill-with-docs"
   },
@@ -18,7 +18,7 @@
     "thinking": "xhigh"
   },
   "reviewer": {
-    "model": "openai-codex/gpt-6-sol",
+    "model": "openai-codex/gpt-6.1-sol",
     "thinking": "xhigh",
     "skills": "karpathy-guidelines"
   },
